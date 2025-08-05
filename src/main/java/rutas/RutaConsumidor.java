@@ -13,10 +13,11 @@ public class RutaConsumidor extends RouteBuilder {
     public void configure() throws Exception {
 
         restConfiguration()
-                .bindingMode(RestBindingMode.auto);
+                .bindingMode(RestBindingMode.off);
 
         rest("ejemplo1")
                 .post()
+                .consumes("application/json")
                 .produces("application/json")
                 .to("direct:rutaInicial");
 
